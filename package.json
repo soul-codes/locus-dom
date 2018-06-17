@@ -10,11 +10,13 @@
   "scripts": {
     "prepare": "rm -rf dist && tsc",
     "start": "concurrently --kill-others \"npm run tsc-watch\" \"npm run demo-server\"",
+    "release": "release-it",
     "tsc-watch": "rm -rf dist && tsc --watch",
     "demo-server": "webpack-serve --config ./demo/webpack.config.js --content ./demo --port 9001"
   },
   "devDependencies": {
     "concurrently": "^3.5.1",
+    "release-it": "^7.4.7",
     "typescript": "^2.9.1",
     "webpack": "^4.12.0",
     "webpack-serve": "^1.0.4"
