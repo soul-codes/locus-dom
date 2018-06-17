@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>locus-dom demo</title>
+</head>
+
+<body>
+    <h1>locus-dom demo</h1>
+    <h2>Stage</h2>
+    <section id="scrollbox">
+        <input type="checkbox" id="upstream-checkbox" />
+        <label for="upstream-checkbox">I am #upstream-checkbox. When I am checked, my friend #upstream-textarea gets a bigger margin.</label>
+        <br/>
+        <!-- Instead of wrapping above in a div, we put them at the same level as textarea to check the sibling selector -->
+        <textarea id="upstream-textarea" placeholder="I am #upstream-textarea" onresize="alert('x')"></textarea>
+        <div id="target">
+            I'm #target. My location changes relative to the page because
+            <ul>
+                <li>#upstream-textarea changes size when hovered or focused.</li>
+            </ul>
+        </div>
+        <style>
+            body {
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+            }
+
+            #upstream-textarea {
+                width: 300px;
+                height: 100px;
+                background-color: green;
+                color: white;
+
+            }
+
+            #upstream-textarea::placeholder {
+                color: #99ff99;
+            }
+
+            #upstream-textarea:hover {
+                height: 150px;
+                background-color: limegreen;
+                color: white;
+            }
+
+            #upstream-textarea:focus {
+                height: 200px;
+                background-color: lightgreen;
+                color: white;
+            }
+
+            #upstream-checkbox:checked~#upstream-textarea {
+                margin-top: 50px;
+            }
+
+            #target {
+                padding: 20px;
+                height: 200px;
+                background-color: lightblue
+            }
+
+            #scrollbox {
+                height: 300px;
+                overflow-y: scroll;
+                border: 1px solid black
+            }
+        </style>
+    </section>
+    <section>
+        <h2>Controls</h2>
+        <input type="checkbox" id="control-toggle-content" />
+        <label for="control-toggle-content">Hide upstream textarea</label>
+        <input type="checkbox" id="control-toggle-logging" />
+        <label for="control-toggle-logging">Console log observed changes</label>
+        <input type="checkbox" id="control-toggle-locus" checked />
+        <label for="control-toggle-locus">Locus enabled</label>
+    </section>
+    <section>
+        <h2>Output</h2>
+        Target position: (left:
+        <span id="target-left"></span>, top:
+        <span id="target-top"></span>)
+    </section>
+    <script src="demo.js"></script>
+</body>
+
+</html>

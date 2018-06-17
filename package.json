@@ -1,0 +1,20 @@
+{
+  "name": "locus-dom",
+  "version": "0.0.1",
+  "description": "Low-level DOM element position observer",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": "https://github.com/soul-codes/locus-dom",
+  "author": "soul-codes <reach.soul.codes@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "prepare": "rm -rf dist && tsc",
+    "dev": "rm -rf dist && tsc --watch",
+    "demo": "webpack-serve --config ./demo/webpack.config.js --content ./demo --port 9001"
+  },
+  "devDependencies": {
+    "typescript": "^2.9.1",
+    "webpack": "^4.12.0",
+    "webpack-serve": "^1.0.4"
+  }
+}
